@@ -1,16 +1,27 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AdminRoutes from "./routes/AdminRoutes";
 import UserRoutes from "./routes/UserRoutes";
-import './App.css'
+import CommonRoutes from "./routes/CommonRoutes";
+
+import './App.css';
 
 function App() {
-
-
   return (
-  <Router>
-       <UserRoutes/>
+    <Router>
+      <Routes>
+        {/* User side routes */}
+        <Route path="/*" element={<UserRoutes />} />
+
+        {/* Admin side routes */}
+        <Route path="/admin/*" element={<AdminRoutes />} />
+
+        {/* Common routes for both */}
+        <Route path="/*" element={<CommonRoutes />} />
+      </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
+
