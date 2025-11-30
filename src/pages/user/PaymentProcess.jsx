@@ -6,6 +6,7 @@ import { Upload } from "lucide-react";
 import { Button } from "../../components/button";
 import toast, { Toaster } from "react-hot-toast";
 
+
 const PaymentProcess = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
