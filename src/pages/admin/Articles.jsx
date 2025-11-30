@@ -1,6 +1,6 @@
 import React from "react";
 
-const Blogs = () => {
+const Articles = () => {
   const blogs = [
     { id: 1, title: "How to Care for Indoor Plants", author: "Admin" },
     { id: 2, title: "Best Plants for Air Purification", author: "Admin" }
@@ -34,4 +34,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default Articles;

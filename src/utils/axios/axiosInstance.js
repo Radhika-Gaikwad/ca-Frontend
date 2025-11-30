@@ -1,21 +1,23 @@
-// axiosAuthInstance.js
-import axios from 'axios';
-import { getCookie } from '../../cookie/Cookies';
+import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: 'http://54.234.201.60:5000/',
+  baseURL: "http://localhost:5000/api/",
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
 
+// Update Authorization header
 export const updateAuthHeader = (token) => {
-  console.log(token)
-  axiosInstance.defaults.headers.common['Authorization'] =`Bearer ${token}`;
+  if (token) {
+    axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  } else {
+    delete axiosInstance.defaults.headers.common["Authorization"];
+  }
 };
-const token=getCookie("token")
-if(token){
-  updateAuthHeader(token)
-}
+
+// Load token on refresh
+const savedToken = localStorage.getItem("token");
+if (savedToken) updateAuthHeader(savedToken);
 
 export default axiosInstance;

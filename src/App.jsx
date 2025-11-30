@@ -1,22 +1,22 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from "react"; 
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import AdminRoutes from "./routes/AdminRoutes";
 import UserRoutes from "./routes/UserRoutes";
 import CommonRoutes from "./routes/CommonRoutes";
 
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* User side routes */}
-        <Route path="/*" element={<UserRoutes />} />
+        {/* Redirect base path to user/plan */}
+        <Route path="/" element={<Navigate to="/user/plan" replace />} />
 
-        {/* Admin side routes */}
         <Route path="/admin/*" element={<AdminRoutes />} />
+        <Route path="/user/*" element={<UserRoutes />} />
 
-        {/* Common routes for both */}
+        {/* Only login/signup */}
         <Route path="/*" element={<CommonRoutes />} />
       </Routes>
     </Router>
@@ -24,4 +24,3 @@ function App() {
 }
 
 export default App;
-

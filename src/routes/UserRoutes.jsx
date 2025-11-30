@@ -1,24 +1,24 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import UserLayout from "../layout/UserLayout";
-
 import Home from "../pages/user/Home";
-import Categories from "../pages/user/Categories";
-import Orders from "../pages/user/Orders";
-import Cart from "../pages/user/Cart";
-import Products from "../pages/user/Products";
-import PlaceOrder from "../pages/user/PlaceOrder";
+import PurchaseForm from "../pages/user/PurchaseForm";
+import PaymentProcess from "../pages/user/PaymentProcess";
+import PurchasedPlan from "../pages/user/PurchasedPlan";
+import Articles from "../pages/user/Articles";
 
 const UserRoutes = () => {
   return (
     <Routes>
       <Route element={<UserLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/place-order" element={<PlaceOrder />} />
+        {/* Default page inside user section */}
+        <Route path="plan" element={<Home />} />
+        <Route path="" element={<Home />} />  {/* /user shows Home */}
+
+        <Route path="purchase-plan" element={<PurchaseForm />} />
+        <Route path="payment-process" element={<PaymentProcess />} />
+        <Route path="purchased-plan" element={<PurchasedPlan />} />
+           <Route path="articles" element={<Articles />} />
       </Route>
     </Routes>
   );
